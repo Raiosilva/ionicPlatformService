@@ -17,12 +17,16 @@ const routes: Routes = [
         ],
       },
       {
-        path: 'tab2',
-        loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+        path: 'tabAceitos',
+        loadChildren: () => import('../aceitos/aceitos.module').then(m => m.AceitosPageModule)
       },
       {
-        path: 'tab3',
-        loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+        path: 'tabConcluidos',
+        loadChildren: () => import('../concluidos/concluidos.module').then(m => m.ConcluidosPageModule)
+      },
+      {
+        path: 'tabPerfil',
+        loadChildren: () => import('../perfil/perfil.module').then(m => m.PerfilPageModule)
       },
       {
         path: '',
