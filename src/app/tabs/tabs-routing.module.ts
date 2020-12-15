@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 
+const perfil: string = localStorage.getItem('platformservice:perfil');
+
 const routes: Routes = [
   {
     path: 'tabs',
@@ -29,15 +31,23 @@ const routes: Routes = [
         loadChildren: () => import('../perfil/perfil.module').then(m => m.PerfilPageModule)
       },
       {
+        path: 'tabSolicitacoes',
+        loadChildren: () => import('../solicitacoes/solicitacoes.module').then(m => m.SolicitacoesPageModule)
+      },
+      {
+        path: 'tabAtendidas',
+        loadChildren: () => import('../atendidas/atendidas.module').then(m => m.AtendidasPageModule)
+      },
+      {
         path: '',
-        redirectTo: '/tabs/tabDisponiveis',
+        redirectTo: perfil == 'profissional' ? '/tabs/tabDisponiveis' : '/tabs/tabSolicitacoes',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tabDisponiveis',
+    redirectTo: perfil == 'profissional' ? '/tabs/tabDisponiveis' : '/tabs/tabSolicitacoes',
     pathMatch: 'full'
   }
 ];
