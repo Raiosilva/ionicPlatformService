@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { SolicitacoesPageRoutingModule } from './solicitacoes-routing.module';
 
 import { SolicitacoesPage } from './solicitacoes.page';
+import { PipesModule } from 'src/pipes/pipes.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SolicitacoesPageRoutingModule
+    SolicitacoesPageRoutingModule,
+    PipesModule
   ],
   declarations: [SolicitacoesPage]
 })
