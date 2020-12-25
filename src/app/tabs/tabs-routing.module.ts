@@ -20,23 +20,52 @@ const routes: Routes = [
       },
       {
         path: 'tabAceitos',
-        loadChildren: () => import('../aceitos/aceitos.module').then(m => m.AceitosPageModule)
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../aceitos/aceitos.module').then(m => m.AceitosPageModule)
+          }
+        ]
       },
       {
         path: 'tabConcluidos',
-        loadChildren: () => import('../concluidos/concluidos.module').then(m => m.ConcluidosPageModule)
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../concluidos/concluidos.module').then(m => m.ConcluidosPageModule)
+          }
+        ]
       },
       {
         path: 'tabPerfil',
-        loadChildren: () => import('../perfil/perfil.module').then(m => m.PerfilPageModule)
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../perfil/perfil.module').then(m => m.PerfilPageModule)
+          },
+        ]
       },
       {
         path: 'tabSolicitacoes',
-        loadChildren: () => import('../solicitacoes/solicitacoes.module').then(m => m.SolicitacoesPageModule)
+        children: [ 
+          {
+            path: '',
+            loadChildren: () => import('../solicitacoes/solicitacoes.module').then(m => m.SolicitacoesPageModule)
+          },
+          {
+            path: 'nova-solicitacao',
+            loadChildren: () => import('../nova-solicitacao/nova-solicitacao.module').then( m => m.NovaSolicitacaoPageModule)
+          }
+        ]
       },
       {
         path: 'tabAtendidas',
-        loadChildren: () => import('../atendidas/atendidas.module').then(m => m.AtendidasPageModule)
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../atendidas/atendidas.module').then(m => m.AtendidasPageModule)
+          }
+        ]
       },
       {
         path: '',

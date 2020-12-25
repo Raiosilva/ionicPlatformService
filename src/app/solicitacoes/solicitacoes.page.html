@@ -3,6 +3,11 @@
     <ion-title>Solicitações</ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-fab vertical="top" horizontal="end" slot="fixed">
+  <ion-fab-button  color="primary" routerLink="/tabs/tabSolicitacoes/nova-solicitacao" routerDirection="forward">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
 
 <ion-content>
   <ion-card *ngFor="let request of list">
@@ -21,9 +26,4 @@
       Você ainda não fez nenhuma solicitação, clique no botão + acima para começar :D
     </ion-card-content>
   </ion-card>
-  <ion-fab vertical="top" horizontal="end" slot="fixed" color="primary">
-    <ion-fab-button>
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
 </ion-content>

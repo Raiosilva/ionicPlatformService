@@ -35,12 +35,12 @@ export class HttpService {
     const header = this.createHeader();
     return new Promise(async (resolve) => {
       try {
-        this.spinnerCrv.Show();
+        await this.spinnerCrv.Show();
         const res = await this.http.get(url, { headers: header }).toPromise();
         resolve({ success: true, data: res, error: undefined });
-        this.spinnerCrv.Hide();
+        await this.spinnerCrv.Hide();
       } catch (error) {
-        this.spinnerCrv.Hide();
+        await this.spinnerCrv.Hide();
         resolve({ success: false, data: {}, error });
       }
     });
@@ -50,12 +50,12 @@ export class HttpService {
     const header = this.createHeader();
     return new Promise(async (resolve) => {
       try {
-        this.spinnerCrv.Show();
+        await this.spinnerCrv.Show();
         const res = await this.http.post(url, model, { headers: header }).toPromise();
         resolve({ success: true, data: res, error: undefined });
-        this.spinnerCrv.Hide();
+        await this.spinnerCrv.Hide();
       } catch (error) {
-        this.spinnerCrv.Hide();
+        await this.spinnerCrv.Hide();
         if (error.status === 400) {
           let errosText = '<url>';
           if (Array.isArray(error.error)) {
@@ -63,7 +63,7 @@ export class HttpService {
               errosText += `<li style="text-align: left">${ element.message ||element }</li>`;
             });
             errosText += '</ul>';
-            this.alertCrv.alert('Atenção', errosText);
+            await this.alertCrv.alert('Atenção', errosText);
           };
         }
         resolve({ success: false, data: {}, error });
@@ -75,12 +75,12 @@ export class HttpService {
     const header = this.createHeader();
     return new Promise(async (resolve) => {
       try {
-        this.spinnerCrv.Show();
+        await this.spinnerCrv.Show();
         const res = await this.http.delete(url, { headers: header }).toPromise();
         resolve({ success: true, data: res, error: undefined });
-        this.spinnerCrv.Hide();
+        await this.spinnerCrv.Hide();
       } catch (error) {
-        this.spinnerCrv.Hide();
+        await this.spinnerCrv.Hide();
         resolve({ success: false, data: {}, error });
       }
     });
