@@ -3,16 +3,16 @@ ion-content {
 }
 
 ion-grid {
-    --ion-grid-padding: 5px;
+  --ion-grid-padding: 5px;
 
-    ion-col > div {
-        --background: linear-gradiente(to bottom, #fcfcfc 0%, #e4e4e4 100%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 60px;
-        border-radius: 5px;
-        box-shadow: 2px 2px 5px var(--ion-color-tertiary-shade);
-        border: 1px solid var(--ion-color-tertiary);
-    }
+  ion-col > div {
+      --background: linear-gradiente(to bottom, #fcfcfc 0%, #e4e4e4 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 60px;
+      border-radius: 5px;
+      box-shadow: 2px 2px 5px var(--ion-color-tertiary-shade);
+      border: 1px solid var(--ion-color-tertiary);
+  }
 }
