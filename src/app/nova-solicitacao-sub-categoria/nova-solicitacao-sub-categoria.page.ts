@@ -21,8 +21,13 @@ export class NovaSolicitacaoSubCategoriaPage implements OnInit {
 
   ngOnInit() {
     try {
-      this.category = this.router.getCurrentNavigation().extras.state as Category;
-      this.loadData();
+      const { extras } = this.router.getCurrentNavigation();
+      if (extras && extras.state) {
+        this.category = extras.state as Category;
+        this.loadData();
+      } else {
+      this.router.navigateByUrl('/tabs');
+      }
     } catch (error) {
       this.router.navigateByUrl('/tabs');
     }
@@ -35,4 +40,7 @@ export class NovaSolicitacaoSubCategoriaPage implements OnInit {
     }
   }
 
+  selectSubCategory(subCategory: SubCategory): void {
+    this.router.navigate(['/tabs/tabSolicitacoes/nova-solicitacao-perguntas/'], { state: subCategory });
+  }
 }
