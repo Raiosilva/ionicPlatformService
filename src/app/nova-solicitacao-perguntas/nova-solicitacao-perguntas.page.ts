@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { Question } from 'src/models/Question.dto';
 import { SubCategory } from 'src/models/SubCategory.dto';
 import { QuestionsService } from 'src/services/questions.service';
@@ -17,7 +18,8 @@ export class NovaSolicitacaoPerguntasPage implements OnInit {
 
   constructor(
     private service: QuestionsService,
-    private router: Router
+    private router: Router,
+    private navCtrl: NavController
   ) { }
 
   ngOnInit() {
@@ -28,10 +30,12 @@ export class NovaSolicitacaoPerguntasPage implements OnInit {
         console.log('subCategory: ', this.subCategory);
         this.loadData();
       } else {
-      this.router.navigateByUrl('/tabs');
+        this.navCtrl.navigateRoot('/tabs');
+      // this.router.navigateByUrl('/tabs');
       }
     } catch (error) {
-      this.router.navigateByUrl('/tabs');
+      this.navCtrl.navigateRoot('/tabs');
+      // this.router.navigateByUrl('/tabs');
     }
   }
 

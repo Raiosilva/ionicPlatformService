@@ -17,6 +17,10 @@
     <ion-item>
       Preencha o formulário abaixo para finalizar sua solicitação
     </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Título da Solicitação</ion-label>
+    <ion-input></ion-input>
+    </ion-item>
     <ion-item  *ngFor="let q of questions">
       <ion-label class="ion-text-wrap" position="stacked">{{ q.question }}</ion-label>
       <ion-input *ngIf="q.type === 1" 
@@ -26,7 +30,9 @@
       <ion-datetime *ngIf="q.type === 2" 
                     displayFormat="DD/MM/YYYY" 
                     pickerFormat="DD MM YYYY" 
-                    [(ngModel)]="answers[q.uid]">
+                    [(ngModel)]="answers[q.uid]"
+                    doneText="Ok"
+                    cancelText="Cancelar">
       </ion-datetime>
       <ion-select *ngIf="q.type === 3" placeholder="Selecione um" [(ngModel)]="answers[q.uid]">
         <ion-select-option *ngFor="let op of getOptions(q)" [value]="op">{{op}}</ion-select-option>
