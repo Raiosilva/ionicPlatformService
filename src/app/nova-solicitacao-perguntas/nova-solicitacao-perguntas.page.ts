@@ -13,6 +13,7 @@ export class NovaSolicitacaoPerguntasPage implements OnInit {
 
   subCategory: SubCategory = new SubCategory();
   questions: Array<Question> = new Array<Question>();
+  answers: any = [];
 
   constructor(
     private service: QuestionsService,
@@ -24,6 +25,7 @@ export class NovaSolicitacaoPerguntasPage implements OnInit {
       const { extras } = this.router.getCurrentNavigation();
       if (extras && extras.state) {
         this.subCategory = extras.state as SubCategory;
+        console.log('subCategory: ', this.subCategory);
         this.loadData();
       } else {
       this.router.navigateByUrl('/tabs');
@@ -37,8 +39,14 @@ export class NovaSolicitacaoPerguntasPage implements OnInit {
     const result = await this.service.getAllQuestions(this.subCategory.uid);
     if (result.success) {
       this.questions = result.data as Array<Question>;
-      console.log('questions: ', this.questions);
     }
   }
 
+  getOptions(question: Question) {
+    return question.options.split(',').map(o => o.trim());
+  }
+
+  send() {
+    console.log('answers: ', this.answers);
+  }
 }
